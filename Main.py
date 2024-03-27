@@ -1,0 +1,3 @@
+from Normal_Distribution import Normal_Distribution
+from Lognormal_Distribution import Lognormal_Distribution   
+from Bell_Curve import Bell_Curve
