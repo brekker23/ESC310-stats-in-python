@@ -23,10 +23,18 @@ class Bell_Curve:
     def prob_between(self, x1, x2):
         return self.prob_less(x2) - self.prob_less(x1)
     
-    def graph(self):
-        x = [i/(10*self.sigma) for i in range(int(-500 + self.mu*10*self.sigma), int(500 + self.mu*10*self.sigma))]
-        print(x[0], x[-1])
+    def graph(self, log = False, magnitude = 5, precision = 10):
+        x = [i/precision for i in range(int(self.mu*precision - magnitude*self.sigma*precision), int(self.mu*precision + magnitude*self.sigma*precision))]
         y = [self.value_at(i) for i in x]
-        print(y[0], y[-1])
         plt.plot(x, y)
+        if log:
+            plt.xscale('log')
+        plt.show()
+
+    def graph_cummulative(self, log = False, magnitude = 5, precision = 10):
+        x = [i/precision for i in range(int(self.mu*precision - magnitude*self.sigma*precision), int(self.mu*precision + magnitude*self.sigma*precision))]
+        y = [self.prob_less(i) for i in x]
+        plt.plot(x, y)
+        if log:
+            plt.xscale('log')
         plt.show()

@@ -1,4 +1,5 @@
 import math
+import matplotlib.pyplot as plt
 
 class Math:
     @staticmethod
@@ -45,3 +46,37 @@ class Math:
             term = (x**i)/math.gamma(s+i+1)
             terms.append(term)
         return coef * sum(terms)
+
+    @staticmethod
+    def integrate(f, a, b, n, method = "midpoint"):
+        if method == "midpoint":
+            return Math.__midpoint(f, a, b, n)
+        if method == "trapezoid":
+            return Math.__trapezoid(f, a, b, n)
+        if method == "simpsons":
+            return Math.__simpsons(f, a, b, n)
+        raise ValueError("method must be midpoint, trapezoid, or simpsons")
+    
+    @staticmethod
+    def __midpoint(f, a, b, n=1000):
+        w = (b-a)/n
+        sum = 0
+        for i in range(0,n):
+            sum += f(a + w*(i + 0.5))
+        return w*sum
+    
+    @staticmethod
+    def __trapezoid(f, a, b, n=1000):
+        w = (b-a)/n
+        sum = 0
+        for i in range(0,n):
+            sum += w*(f(a + w*i) + f(a + w*(i+1)))/2
+        return sum
+    
+    @staticmethod
+    def __simpsons(f, a, b, n=1000):
+        w = (b-a)/n
+        sum = 0
+        for i in range(0,n):
+            sum += w*(f(a + w*i) + 4*f(a + w*(i + 0.5)) + f(a + w*(i+1)))/6
+        return sum

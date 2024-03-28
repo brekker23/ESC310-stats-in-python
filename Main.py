@@ -1,3 +1,5 @@
 from Normal_Distribution import Normal_Distribution
 from Lognormal_Distribution import Lognormal_Distribution   
 from Bell_Curve import Bell_Curve
+from Gamma_Distribution import Gamma_Distribution
+from Weibull_Distribution import Weibull_Distribution

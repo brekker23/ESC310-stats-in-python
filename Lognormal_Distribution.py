@@ -19,12 +19,20 @@ class Lognormal_Distribution:
     def prop_greater(self, x):
         return 1 - self.prob_less(x)
     
-    def graph(self, log = False, magnitude = 5):
-        x = np.linspace(max(1, self.mu-2*self.sigma*magnitude), self.mu + 2*self.sigma*magnitude, 400)
+    def graph(self, log = False, magnitude = 5, precision = 10):
+        x = [i/precision for i in range(1, int(self.mu + 2*self.sigma*magnitude*precision))]
         y = [self.value_at(i) for i in x]
         plt.plot(x, y)
         if log:
             plt.xscale('log')  # Set the scale of the x axis to 'log'
+        plt.show()
+
+    def graph_cummulative(self, log = False, magnitude = 5, precision = 10):
+        x = [i/precision for i in range(1, int(self.mu + 2*self.sigma*magnitude*precision))]
+        y = [self.prob_less(i) for i in x]
+        plt.plot(x, y)
+        if log:
+            plt.xscale('log')
         plt.show()
 
     def value_at(self, x):

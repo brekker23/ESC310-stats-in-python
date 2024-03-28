@@ -10,8 +10,12 @@ class Gamma_Distribution:
             raise ValueError("l and r must be greater than 0")
         self.alpha = alpha
         self.beta = beta
+        self.theta = 1/beta
         self.mu = beta/alpha
         self.sigma = math.sqrt(beta)/alpha
+        self.variance = beta/(alpha**2)
+        self.mode = (alpha - 1)/beta if alpha > 1 else 0
+        self.skewness = 2/math.sqrt(alpha)
 
     def value_at(self, x):
         if x < 0:
@@ -19,17 +23,26 @@ class Gamma_Distribution:
         return (self.alpha**self.beta)*(x**(self.beta-1))*(math.e**(-self.alpha*x))/math.gamma(self.beta)
     
     def prob_less(self, x):
+        depth = 100
         if x < 0:
             raise ValueError("x must be greater than 0")
-        return (1/math.gamma(self.beta)) * Math.lowergamma(self.beta, self.alpha*x)
+        return min((1/math.gamma(self.alpha)) * Math.lowergamma(self.alpha, self.beta*x, depth=depth),1)
     
     def prob_greater(self, x):
         if x < 0:
             raise ValueError("x must be greater than 0")
         return 1 - self.prob_less(x)
     
-    def graph(self):
-        x = range(1, 100)
-        y = [self.value_at(i/10) for i in x]
+    def graph(self, log = False, magnitude = 6, precision = 10):
+        x = [i/precision for i in range(1, int(self.mu+magnitude*self.sigma*precision))]
+        y = [self.value_at(i) for i in x]
         plt.plot(x,y)
+        plt.show()
+
+    def graph_cummulative(self, log = False, magnitude = 6, precision = 10):
+        x = [i/precision for i in range(1, int(self.mu+magnitude*self.sigma*precision))]
+        y = [self.prob_less(i) for i in x]
+        plt.plot(x,y)
+        if log:
+            plt.xscale('log')
         plt.show()

@@ -6,22 +6,24 @@ from Normal_Distribution import Normal_Distribution
 from Bell_Curve import Bell_Curve
 from Lognormal_Distribution import Lognormal_Distribution
 from Gamma_Distribution import Gamma_Distribution
+from Weibull_Distribution import Weibull_Distribution
 
-# n = Normal_Distribution()
-# print(n.phi(1))
-# n.graph()
+n = Normal_Distribution()
+n.graph()
+n.graph_cummulative(magnitude = 5, precision = 20)
 
-# b = Bell_Curve(50, 2.5)
-# print(b.prob_less(55))
-# b.graph()
+b = Bell_Curve(50, 2.5)
+b.graph()
+b.graph_cummulative(magnitude=5, precision=20)
 
-# l = Lognormal_Distribution(1, .4)
-# print(l.prob_less(55))
-# print(l.mu)
-# print(l.sigma)
-# l.graph()
+l = Lognormal_Distribution(1, .4)
+l.graph()
+l.graph_cummulative(magnitude=5, precision=20)
 
 g = Gamma_Distribution(3, 5)
-print(g.prob_less(2))
-print(g.value_at(2))
 g.graph()
+g.graph_cummulative(magnitude = 5, precision=20)
+
+w = Weibull_Distribution(2, 5)
+w.graph()
+w.graph_cummulative(magnitude=5, precision=20)
