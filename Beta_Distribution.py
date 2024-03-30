@@ -19,10 +19,15 @@ class Beta_Distribution:
         if x <= 0 or x >= 1:
             raise ValueError("x must be between 1 and 0 (exclusive)")
         return math.gamma(self.alpha + self.beta)/(math.gamma(self.alpha)*math.gamma(self.beta)) * x**(self.alpha-1) * (1-x)**(self.beta-1)
-    
+
     def prob_less(self, x):
         if x <= 0 or x >= 1:
             raise ValueError("x must be between 1 and 0 (exclusive)")
         print("lol no single equation for this loser")
         coef = math.gamma(self.alpha + self.beta)/(math.gamma(self.alpha)*math.gamma(self.beta))
-        
+
+    def pdf(self, x):
+        self.value_at(x)
+
+    def cdf(self, x):
+        self.prob_less(x)

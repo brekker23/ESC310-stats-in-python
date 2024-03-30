@@ -21,18 +21,18 @@ class Gamma_Distribution:
         if x < 0:
             raise ValueError("x must be greater than 0")
         return (self.alpha**self.beta)*(x**(self.beta-1))*(math.e**(-self.alpha*x))/math.gamma(self.beta)
-    
+
     def prob_less(self, x):
         depth = 100
         if x < 0:
             raise ValueError("x must be greater than 0")
         return min((1/math.gamma(self.alpha)) * Math.lowergamma(self.alpha, self.beta*x, depth=depth),1)
-    
+
     def prob_greater(self, x):
         if x < 0:
             raise ValueError("x must be greater than 0")
         return 1 - self.prob_less(x)
-    
+
     def graph(self, log = False, magnitude = 6, precision = 10):
         x = [i/precision for i in range(1, int(self.mu+magnitude*self.sigma*precision))]
         y = [self.value_at(i) for i in x]
@@ -46,3 +46,9 @@ class Gamma_Distribution:
         if log:
             plt.xscale('log')
         plt.show()
+
+    def pdf(self, x):
+        self.value_at(x)
+
+    def cdf(self, x):
+        self.prob_less(x)

@@ -15,10 +15,10 @@ class Lognormal_Distribution:
     def prob_less(self, x):
         conversion_factor = (Math.ln(x) - self.theta)/self.omega
         return Normal_Distribution.phi(conversion_factor)
-    
+
     def prop_greater(self, x):
         return 1 - self.prob_less(x)
-    
+
     def graph(self, log = False, magnitude = 5, precision = 10):
         x = [i/precision for i in range(1, int(self.mu + 2*self.sigma*magnitude*precision))]
         y = [self.value_at(i) for i in x]
@@ -40,3 +40,9 @@ class Lognormal_Distribution:
             raise ValueError("x must be greater than 0")
         conversion_factor = (Math.ln(x) - self.theta)/self.omega
         return Normal_Distribution.value_at(conversion_factor)
+
+    def pdf(self, x):
+        self.value_at(x)
+
+    def cdf(self, x):
+        self.prob_less(x)

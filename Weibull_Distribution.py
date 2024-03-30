@@ -17,16 +17,16 @@ class Weibull_Distribution:
 
     def prob_less(self, x):
         return 1 - math.exp(-((x/self.delta)**self.beta))
-    
+
     def prob_greater(self, x):
         return 1 - self.prob_less(x)
-    
+
     def graph(self, magnitude = 3, precision = 10):
         x = [i/precision for i in range(1, int((self.mu + 2*self.sigma*magnitude)*precision))]
         y = [self.value_at(i) for i in x]
         plt.plot(x, y)
         plt.show()
-    
+
     def graph_cummulative(self, log = False, magnitude = 3, precision = 10):
         x = [i/precision for i in range(1, int((self.mu + 2*self.sigma*magnitude)*precision))]
         y = [self.prob_less(i) for i in x]
@@ -34,3 +34,9 @@ class Weibull_Distribution:
         if log:
             plt.xscale('log')
         plt.show()
+
+    def pdf(self, x):
+        self.value_at(x)
+
+    def cdf(self, x):
+        self.prob_less(x)
