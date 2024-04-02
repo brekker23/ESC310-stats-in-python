@@ -24,6 +24,7 @@ class Weibull_Distribution:
     def graph(self, magnitude = 3, precision = 10):
         x = [i/precision for i in range(1, int((self.mu + 2*self.sigma*magnitude)*precision))]
         y = [self.value_at(i) for i in x]
+        plt.title("Weibull Distribution PDF")
         plt.plot(x, y)
         plt.show()
 
@@ -31,6 +32,7 @@ class Weibull_Distribution:
         x = [i/precision for i in range(1, int((self.mu + 2*self.sigma*magnitude)*precision))]
         y = [self.prob_less(i) for i in x]
         plt.plot(x, y)
+        plt.title("Weibull Distribution CDF")
         if log:
             plt.xscale('log')
         plt.show()

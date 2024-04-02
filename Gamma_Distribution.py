@@ -37,12 +37,16 @@ class Gamma_Distribution:
         x = [i/precision for i in range(1, int(self.mu+magnitude*self.sigma*precision))]
         y = [self.value_at(i) for i in x]
         plt.plot(x,y)
+        plt.title("Gamma Distribution PDF")
+        if log:
+            plt.xscale('log')
         plt.show()
 
     def graph_cummulative(self, log = False, magnitude = 6, precision = 10):
         x = [i/precision for i in range(1, int(self.mu+magnitude*self.sigma*precision))]
         y = [self.prob_less(i) for i in x]
         plt.plot(x,y)
+        plt.title("Gamma Distribution CDF")
         if log:
             plt.xscale('log')
         plt.show()

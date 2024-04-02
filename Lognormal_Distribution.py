@@ -23,6 +23,7 @@ class Lognormal_Distribution:
         x = [i/precision for i in range(1, int(self.mu + 2*self.sigma*magnitude*precision))]
         y = [self.value_at(i) for i in x]
         plt.plot(x, y)
+        plt.title("Lognormal Distribution PDF")
         if log:
             plt.xscale('log')  # Set the scale of the x axis to 'log'
         plt.show()
@@ -31,6 +32,7 @@ class Lognormal_Distribution:
         x = [i/precision for i in range(1, int(self.mu + 2*self.sigma*magnitude*precision))]
         y = [self.prob_less(i) for i in x]
         plt.plot(x, y)
+        plt.title("Lognormal Distribution CDF")
         if log:
             plt.xscale('log')
         plt.show()

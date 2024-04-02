@@ -18,10 +18,11 @@ class Normal_Distribution:
         x = [i/precision for i in range(-int(magnitude*precision), int(magnitude*precision))]
         y = [Normal_Distribution.value_at(i) for i in x]
         plt.plot(x, y)
+        plt.title("Normal Distribution PDF")
         plt.show()
 
     @staticmethod
-    def prob_less(self, x):
+    def prob_less(x):
         return Normal_Distribution.phi(x)
 
     @staticmethod
@@ -29,6 +30,7 @@ class Normal_Distribution:
         x = [i/precision for i in range(-int(magnitude*precision), int(magnitude*precision))]
         y = [Normal_Distribution.phi(i) for i in x]
         plt.plot(x, y)
+        plt.title("Normal Distribution CDF")
         if log:
             plt.xscale('log')
         plt.show()

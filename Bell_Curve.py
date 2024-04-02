@@ -27,6 +27,7 @@ class Bell_Curve:
         x = [i/precision for i in range(int(self.mu*precision - magnitude*self.sigma*precision), int(self.mu*precision + magnitude*self.sigma*precision))]
         y = [self.value_at(i) for i in x]
         plt.plot(x, y)
+        plt.title("Bell Curve PDF")
         if log:
             plt.xscale('log')
         plt.show()
@@ -35,6 +36,7 @@ class Bell_Curve:
         x = [i/precision for i in range(int(self.mu*precision - magnitude*self.sigma*precision), int(self.mu*precision + magnitude*self.sigma*precision))]
         y = [self.prob_less(i) for i in x]
         plt.plot(x, y)
+        plt.title("Bell Curve CDF")
         if log:
             plt.xscale('log')
         plt.show()
