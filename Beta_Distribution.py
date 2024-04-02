@@ -24,7 +24,6 @@ class Beta_Distribution:
     def prob_less(self, x):
         if x < 0 or x > 1:
             raise ValueError("x must be between 1 and 0 (inclusive)")
-        print(x,sp.betainc(self.alpha, self.beta, x))
         return sp.betainc(self.alpha, self.beta, x)
 
     def pdf(self, x):
@@ -46,3 +45,6 @@ class Beta_Distribution:
         plt.plot(x,y)
         plt.title("Beta Distribution CDF")
         plt.show()
+
+    def prob_greater(self, x):
+        return 1 - self.prob_less(x)

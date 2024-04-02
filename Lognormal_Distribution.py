@@ -48,3 +48,6 @@ class Lognormal_Distribution:
 
     def cdf(self, x):
         self.prob_less(x)
+
+    def prob_greater(self, x):
+        return 1 - self.prob_less(x)

@@ -1,6 +1,7 @@
 from Math import Math
 import math
 import matplotlib.pyplot as plt
+import scipy.special as sp
 
 class Normal_Distribution:
     mu = 0
@@ -42,3 +43,27 @@ class Normal_Distribution:
     @staticmethod
     def cdf(x):
         Normal_Distribution.prob_less(x)
+
+    @staticmethod
+    def sample_x_bar(data):
+        return sum(data)/len(data)
+
+    @staticmethod
+    def sample_variance(data):
+        x_bar = Normal_Distribution.sample_x_bar(data)
+        return sum([(x - x_bar)**2 for x in data])/(len(data)-1)
+
+    @staticmethod
+    def sample_std_dev(data):
+        return math.sqrt(Normal_Distribution.sample_variance(data))
+
+    @staticmethod
+    def inverse_quantile(x):
+        if x < 0 or x > 1:
+            raise ValueError("x must be between 0 and 1 (inclusive)")
+        ans = math.sqrt(2)*sp.erfinv(2*x-1)
+        return ans
+
+    @staticmethod
+    def prob_greater(x):
+        return 1 - Normal_Distribution.phi(x)

@@ -46,3 +46,6 @@ class Bell_Curve:
 
     def cdf(self, x):
         self.prob_less(x)
+
+    def inverse_quantile(self, x):
+        return self.mu + self.sigma * Normal_Distribution.inverse_quantile(x)

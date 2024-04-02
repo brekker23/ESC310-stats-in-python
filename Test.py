@@ -8,7 +8,13 @@ from Lognormal_Distribution import Lognormal_Distribution
 from Gamma_Distribution import Gamma_Distribution
 from Weibull_Distribution import Weibull_Distribution
 from Beta_Distribution import Beta_Distribution
+from Normal_Probability_Plot import Normal_Probability_Plot
+from Dataset import Dataset
+from Binomial_Distribution import Binomial_Distribution
+from Poisson_Distribution import Poisson_Distribution
+from Exponential_Distribution import Exponential_Distribution
 
+data = np.random.normal(loc=5, scale=10, size=100).tolist()
 # n = Normal_Distribution()
 # n.graph()
 # n.graph_cummulative(magnitude = 5, precision = 20)
@@ -29,6 +35,25 @@ from Beta_Distribution import Beta_Distribution
 # w.graph()
 # w.graph_cummulative(magnitude=5, precision=20)
 
-b = Beta_Distribution(2, 5)
-b.graph()
-b.graph_cummulative(precision=20)
+# b = Beta_Distribution(2, 5)
+# b.graph()
+# b.graph_cummulative(precision=20)
+
+
+# npp = Normal_Probability_Plot(data)
+# npp.plot()
+
+# d = Dataset(data)
+# d.normal_probability_plot()
+
+# b = Binomial_Distribution(.4, 10)
+# b.graph()
+# b.graph_cummulative()
+
+# p = Poisson_Distribution(11.5)
+# p.graph()
+# p.graph_cummulative()
+
+e = Exponential_Distribution(2)
+e.graph()
+e.graph_cummulative()
