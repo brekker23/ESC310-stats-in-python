@@ -54,6 +54,9 @@ data = np.random.normal(loc=5, scale=10, size=100).tolist()
 # p.graph()
 # p.graph_cummulative()
 
-e = Exponential_Distribution(2)
-e.graph()
-e.graph_cummulative()
+# e = Exponential_Distribution(2)
+# e.graph()
+# e.graph_cummulative()
+
+b = Binomial_Distribution(.4, 10)
+b.graph_normal_approximation()

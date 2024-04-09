@@ -1,0 +1,16 @@
+The Normal Distribution, also known as Gaussian distribution, is a type of continuous probability distribution for a real-valued random variable.
+
+Where:
+μ is the mean or expectation of the distribution (and also its median and mode),
+σ is the standard deviation,
+σ^2 is the variance.
+
+A random variable with a Gaussian distribution is said to be normally distributed, and it is called a normal deviate.
+The normal distribution is symmetric about the mean—showing that data near the mean are more frequent in occurrence than data far from the mean. The "bell curve" is a common visual representation of this distribution.
+
+Use Cases:
+Real-world measurements: Many real-world measurements such as human height, blood pressure, test scores, etc., when independently and randomly recorded, often follow a normal distribution.
+Central Limit Theorem: The sum of many independent random variables, each with finite mean and variance, will have approximately a normal distribution, regardless of the shape of the original distribution.
+Statistical inference: Many statistical techniques require data to be normally distributed. These techniques include t-tests, ANOVAs, confidence intervals, linear regression models, and many others.
+Quality control and process control: In manufacturing, normal distributions can model tolerances and variations in product dimensions, and help maintain quality control.
+Finance: In finance, returns on assets are often assumed to be normally distributed for risk management and pricing purposes.

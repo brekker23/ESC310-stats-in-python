@@ -1,0 +1,11 @@
+The Poisson Distribution is a type of discrete probability distribution that expresses the probability of a given number of events occurring in a fixed interval of time or space. These events must occur with a known constant mean rate and be independent of the time since the last event.
+
+Use Cases:
+
+Call Centers: In a call center, a Poisson distribution can model the number of calls received in a certain period of time.
+Traffic Flow: In traffic engineering, a Poisson distribution can represent the number of cars passing through a certain point in a given length of time.
+Natural Events: In natural sciences, a Poisson distribution can model rare events such as mutations in DNA or radioactive decay.
+Service Systems: In service systems, a Poisson distribution can model arrival rates, such as the number of customers arriving at a checkout counter in a given period of time.
+Network Traffic: In computer networks, a Poisson distribution can model the number of packets arriving at a certain point in the network in a given length of time.
+
+Remember, the Poisson distribution is not always the appropriate model for "number of events" data, especially if the events are not independent or the mean rate is not constant. Always check the assumptions of your model against the data.

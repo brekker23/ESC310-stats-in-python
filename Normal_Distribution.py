@@ -2,6 +2,7 @@ from Math import Math
 import math
 import matplotlib.pyplot as plt
 import scipy.special as sp
+from Util import Util
 
 class Normal_Distribution:
     mu = 0
@@ -9,6 +10,11 @@ class Normal_Distribution:
     @staticmethod
     def phi(x):
         return Math.erf(x/(math.sqrt(2)))/2 + 0.5
+
+    @staticmethod
+    def description():
+        Util.print_file_content("Descriptions/Normal_Distribution_Description.txt")
+
 
     @staticmethod
     def value_at(x):

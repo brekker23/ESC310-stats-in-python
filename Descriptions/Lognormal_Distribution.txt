@@ -1,0 +1,12 @@
+The Lognormal Distribution is a type of continuous probability distribution of a random variable whose logarithm is normally distributed. This means that if you take the natural logarithm (ln) of the variable, the resulting distribution is a normal distribution.
+A key characteristic of the lognormal distribution is that it's skewed to the right (it has a long right tail), and its mode (peak) is closer to zero than its mean or median.
+
+Use Cases:
+
+Economic Data: In economics, a lognormal distribution can model income distributions, stock prices, and other financial data, as these can't go below zero but can potentially increase without limit.
+Survival Times: In medical research, a lognormal distribution can model survival times, as these can't be negative and can have a long tail (some people live much longer than the average).
+Size Distributions: In ecology and geology, a lognormal distribution can model the sizes of things (like the size of animal populations or the size of particles in a geological sample) when these sizes can't be negative and can potentially be very large.
+Quality Control: In manufacturing, a lognormal distribution can model variables like the lifetime of a product or the load strength of a material, where values can't be negative and can potentially be very large.
+Internet Traffic: In computer science, a lognormal distribution can model variables like file sizes, web page sizes, or the duration of web browsing sessions, where values can't be negative and can potentially be very large.
+
+Remember, the lognormal distribution is not always the appropriate model for data, especially if the data can take negative values or doesn't have a long right tail. Always check the assumptions of your model against the data.

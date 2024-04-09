@@ -1,0 +1,11 @@
+The Exponential Distribution is a type of continuous probability distribution that is often used to model the time we need to wait before a given event occurs. It is memoryless, meaning that the waiting time until a certain event does not depend on how much time has already passed.
+
+The exponential distribution is widely used in the field of reliability. Reliability deals with the amount of time a product lasts.
+
+Use Cases:
+Failure Rates: It is often used to model the lifespan of objects like radioactive atoms or light bulbs. If a product's failure rate is constant and independent of its age, the product's lifetime has an exponential distribution.
+Customer Service: The exponential distribution can represent the amount of time before the next customer in line is served.
+Population Growth: If individuals reproduce at a constant rate and independently of each other, then the time until the population grows to a certain size is exponentially distributed.
+Risk Management: In risk management, it can be used to model inter-arrival times of certain events, such as insurance claims or natural disasters.
+Digital Signal Processing: In digital signal processing, exponential distributions can be used to model and remove noise from data.
+Remember, the exponential distribution is not always the appropriate model for "time until event" data, especially if the event rate is not constant. Always check the assumptions of your model against the data.

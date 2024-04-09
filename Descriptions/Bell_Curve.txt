@@ -1,0 +1,11 @@
+The "Bell Curve" is a common term for the Normal Distribution, a type of continuous probability distribution for a real-valued random variable. The bell curve is so named because the graph of its probability density resembles a bell shape. This distribution is symmetric and describes data that clusters around a mean or average.
+
+Use Cases:
+
+Performance Measurement: The bell curve is often used in performance measurement where it can represent a distribution of performance scores or production outcomes. For instance, in a large class of students, the distribution of scores often forms a bell curve.
+Quality Control: In manufacturing, the bell curve can be used to analyze variations in a product. If the production process is under control, the quality measurements should follow a bell curve.
+Risk Management: In finance, the bell curve is used in the field of risk management to quantify the risks associated with investment portfolios.
+Health and Medicine: In health and medicine, the bell curve can represent a distribution of values such as blood pressure or weight in a specific population.
+Social Sciences: In social sciences, the bell curve can represent a distribution of values such as IQ scores or heights in a population.
+
+Remember, the bell curve is not always the appropriate model for data, especially if the data is skewed or has heavy tails. Always check the assumptions of your model against the data.
