@@ -1,6 +1,6 @@
 import math
 from matplotlib import pyplot as plt
-
+from Normal_Distribution import Normal_Distribution
 
 
 
@@ -36,6 +36,10 @@ class Poisson_Distribution:
         plt.ylabel("Probability")
         plt.title("Cummulative Poisson Distribution")
         plt.show()
+
+    def normal_approximation(self, x):
+        t = (x + 0.5 - self.mu) / math.sqrt(self.variance)
+        return Normal_Distribution.phi(t)
 
     def prob_less(self, x):
         return self.cdf(x)

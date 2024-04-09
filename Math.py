@@ -1,5 +1,6 @@
 import math
 import matplotlib.pyplot as plt
+import scipy as sp
 
 class Math:
     @staticmethod
@@ -27,25 +28,18 @@ class Math:
             value *= i
             f.append(value)
         return f
-    
+
     @staticmethod
     def ln(x):
         return math.log(x)/math.log(math.e)
-    
-    @staticmethod
-    def log2(x):
-        return math.log(x)/math.log(2)  
 
     @staticmethod
-    def lowergamma(s, x, depth = 20):
-        if x < 0 or s < 0:
-            raise ValueError("x and s must be greater than 0")
-        coef = (x**s)*math.gamma(s)*math.e**(-x)
-        terms = []
-        for i in range(0, depth):
-            term = (x**i)/math.gamma(s+i+1)
-            terms.append(term)
-        return coef * sum(terms)
+    def log2(x):
+        return math.log(x)/math.log(2)
+
+    @staticmethod
+    def lowergamma(s, x):
+        return sp.special.gammainc(s, x)
 
     @staticmethod
     def integrate(f, a, b, n, method = "midpoint"):
@@ -56,7 +50,7 @@ class Math:
         if method == "simpsons":
             return Math.__simpsons(f, a, b, n)
         raise ValueError("method must be midpoint, trapezoid, or simpsons")
-    
+
     @staticmethod
     def __midpoint(f, a, b, n=1000):
         w = (b-a)/n
@@ -64,7 +58,7 @@ class Math:
         for i in range(0,n):
             sum += f(a + w*(i + 0.5))
         return w*sum
-    
+
     @staticmethod
     def __trapezoid(f, a, b, n=1000):
         w = (b-a)/n
@@ -72,7 +66,7 @@ class Math:
         for i in range(0,n):
             sum += w*(f(a + w*i) + f(a + w*(i+1)))/2
         return sum
-    
+
     @staticmethod
     def __simpsons(f, a, b, n=1000):
         w = (b-a)/n

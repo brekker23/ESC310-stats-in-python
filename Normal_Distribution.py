@@ -25,6 +25,8 @@ class Normal_Distribution:
         x = [i/precision for i in range(-int(magnitude*precision), int(magnitude*precision))]
         y = [Normal_Distribution.value_at(i) for i in x]
         plt.plot(x, y)
+        plt.xlabel("X value")
+        plt.ylabel("Probability")
         plt.title("Normal Distribution PDF")
         plt.show()
 
@@ -38,6 +40,8 @@ class Normal_Distribution:
         y = [Normal_Distribution.phi(i) for i in x]
         plt.plot(x, y)
         plt.title("Normal Distribution CDF")
+        plt.xlabel("X value")
+        plt.ylabel("Probability")
         if log:
             plt.xscale('log')
         plt.show()

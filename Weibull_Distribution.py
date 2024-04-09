@@ -1,6 +1,6 @@
 import math
 import matplotlib.pyplot as plt
-
+from Util import Util
 
 
 class Weibull_Distribution:

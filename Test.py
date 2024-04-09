@@ -1,7 +1,3 @@
-from Math import Math
-import matplotlib.pyplot as plt
-import numpy as np
-import math
 from Normal_Distribution import Normal_Distribution
 from Bell_Curve import Bell_Curve
 from Lognormal_Distribution import Lognormal_Distribution
@@ -14,7 +10,7 @@ from Binomial_Distribution import Binomial_Distribution
 from Poisson_Distribution import Poisson_Distribution
 from Exponential_Distribution import Exponential_Distribution
 
-data = np.random.normal(loc=5, scale=10, size=100).tolist()
+# data = np.random.normal(loc=5, scale=10, size=100).tolist()
 # n = Normal_Distribution()
 # n.graph()
 # n.graph_cummulative(magnitude = 5, precision = 20)
@@ -27,9 +23,9 @@ data = np.random.normal(loc=5, scale=10, size=100).tolist()
 # l.graph()
 # l.graph_cummulative(magnitude=5, precision=20)
 
-# g = Gamma_Distribution(3, 5)
-# g.graph()
-# g.graph_cummulative(magnitude = 5, precision=20)
+g = Gamma_Distribution(3, 5)
+g.graph()
+g.graph_cummulative(magnitude = 5, precision=20)
 
 # w = Weibull_Distribution(2, 5)
 # w.graph()
@@ -58,5 +54,6 @@ data = np.random.normal(loc=5, scale=10, size=100).tolist()
 # e.graph()
 # e.graph_cummulative()
 
-b = Binomial_Distribution(.4, 10)
-b.graph_normal_approximation()
+# b = Binomial_Distribution(.4, 100)
+# b.graph()
+# b.graph_cummulative()

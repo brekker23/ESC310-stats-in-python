@@ -33,21 +33,10 @@ class Binomial_Distribution:
     def cdf(self, x):
         return sum([self.pmf(i) for i in range(x+1)])
 
-    def __normal_approximation(self, x):
-        z = (x-self.n*self.p)/math.sqrt(self.n*self.p*self.q)
-        return Normal_Distribution.value_at(z)
+    def normal_approximation(self, x):
+        t = (x + 0.5 - self.mu) / self.sigma
+        return Normal_Distribution.phi(t)
 
-    def graph_normal_approximation(self):
-        x = list(range(0, self.n+1))
-        y = [self.__normal_approximation(i) for i in x]
-        plt.plot(x,y)
-        plt.xlabel("Number of Successes")
-        plt.ylabel("Probability")
-        plt.title("Normal Approximation of Binomial Distribution")
-        x = list(range(0, self.n+1))
-        y = [self.pmf(i) for i in x]
-        plt.bar(x, y)
-        plt.show()
 
     def graph_cummulative(self):
         x = list(range(0, self.n+1))

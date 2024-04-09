@@ -23,10 +23,9 @@ class Gamma_Distribution:
         return (self.alpha**self.beta)*(x**(self.beta-1))*(math.e**(-self.alpha*x))/math.gamma(self.beta)
 
     def prob_less(self, x):
-        depth = 100
         if x < 0:
             raise ValueError("x must be greater than 0")
-        return min((1/math.gamma(self.alpha)) * Math.lowergamma(self.alpha, self.beta*x, depth=depth),1)
+        return min((1/math.gamma(self.alpha)) * Math.lowergamma(self.alpha, self.beta*x),1)
 
     def prob_greater(self, x):
         if x < 0:
