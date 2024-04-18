@@ -1,15 +1,25 @@
-
+import math
 
 
 
 
 class Dataset:
-    def __init__(self, data):
-        if isinstance(data, Dataset):
-            self.data = data.data
-        self.data = data
-        self.s = self.find_s()
-        self.x_bar = self.find_x_bar()
+    def __init__(self, *args):
+        if len(args) == 1 and isinstance(args[0], (list, tuple, set, Dataset)):
+            self.data = args[0]
+            self.x_bar = self.find_x_bar()
+            self.s = self.find_s()
+            self.has_data = True
+        else:
+            for arg in args:
+                if isinstance(arg, (int, float)) and len(args) == 2:
+                    self.s = args[1]
+                    self.x_bar = args[0]
+                    self.has_data = False
+                    self.data = []
+                else:
+                    raise ValueError("can pass in a list of values or a mu and sigma value")
+
         self.distribution = "unknown"
 
     def __len__(self):
@@ -73,3 +83,6 @@ class Dataset:
 
     def find_s(self):
         return (sum([(i - self.x_bar)**2 for i in self.data])/len(self.data))**0.5
+
+    def find_standard_error(self):
+        return self.s/math.sqrt(len(self.data))

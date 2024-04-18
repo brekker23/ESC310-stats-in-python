@@ -4,23 +4,15 @@ import scipy as sp
 
 class Math:
     @staticmethod
-    def erf(x):
-        if x > 3:
-            return 1
-        if x < -3:
-            return -1
-        depth = math.ceil(max(20, 10*abs(x**2)))
-        f = Math.__get_factorials_below(depth, include_zero = True)
-        coef = 2/(math.sqrt(math.pi))
-        terms = []
-        for i in range(0,depth):
-            term = ((-1)**i) * (x**(2*i + 1)) / (f[i]*(2*i + 1))
-            terms.append(term)
-        return coef * sum(terms)
+    def find_closest_value(func, target, initial_guess = 1, tolerance = 0.05, range = [-1000, 1000]):
+        guess = initial_guess
+        value = func(guess)
+        min_guess_error = 4
+
 
 
     @staticmethod
-    def __get_factorials_below(upto, include_zero = False):
+    def get_factorials_below(upto, include_zero = False):
         f = [1] if include_zero else []
         start = 1
         value = 1

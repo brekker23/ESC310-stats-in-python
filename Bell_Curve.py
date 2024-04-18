@@ -2,12 +2,18 @@ from Math import Math
 import math
 from Normal_Distribution import Normal_Distribution
 import matplotlib.pyplot as plt
-
+from Dataset import Dataset
 
 class Bell_Curve:
-    def __init__(self, mu, sigma):
-        self.mu = mu
-        self.sigma = sigma
+    def __init__(self, *args):
+        if len(args) == 1 and isinstance(args[0], Dataset):
+            self.mu = args[0].x_bar
+            self.sigma = args[0].s
+        elif len(args) == 2 and isinstance(args[0], (int, float)) and isinstance(args[1], (int, float)):
+            self.mu = args[0]
+            self.sigma = args[1]
+        else:
+            raise ValueError("Must pass in a dataset or mu and sigma values")
 
     def prob_less(self, x):
         conversion_factor = (x - self.mu)/self.sigma
